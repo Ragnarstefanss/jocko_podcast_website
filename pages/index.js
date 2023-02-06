@@ -4,10 +4,23 @@ import Nav from "../components/Nav";
 import Results from "../components/Results";
 import requests from "../utils/requests";
 import Image from "next/image";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 //import tmdb from "../public/tmdb.svg";
 
 
-export default function Home({ results }) {
+export default function Home({ }) {
+    const [videos, setVideosContent] = useState([]);
+  
+
+  useEffect(() => {
+      axios.get('videos.json')
+          .then(res => setVideosContent(res.data))
+          .catch(error => console.error(error));
+  
+  }, []);
+
+  // .replace(/\n/g, "<br>")
   return (
     <div>
       <Head>
@@ -17,21 +30,21 @@ export default function Home({ results }) {
       </Head>
       <Header />
       <Nav />
-      <Results results={results} />
+      <Results results={videos} />
     </div>
   );
 }
 
-export async function getServerSideProps(context) {
-  const genre = context.query.genre;
-  const request = await fetch(
-    `https://api.themoviedb.org/3${requests[genre]?.url || requests.fetchTrending.url
-    }`
-  ).then((res) => res.json());
+// export async function getServerSideProps(context) {
+//   const genre = context.query.genre;
+//   const request = await fetch(
+//     `https://api.themoviedb.org/3${requests[genre]?.url || requests.fetchTrending.url
+//     }`
+//   ).then((res) => res.json());
 
-  return {
-    props: {
-      results: request.results,
-    },
-  };
-}
+//   return {
+//     props: {
+//       results: request.results,
+//     },
+//   };
+// }

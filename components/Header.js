@@ -35,7 +35,7 @@ function Header() {
                 <div onClick={() => { router.push({ pathname: '/verified', query: {}, }) }}><HeaderItem title='VERIFIED' Icon={CheckBadgeIcon} /></div>
                 <div onClick={() => { router.push({ pathname: '/collections', query: {}, }) }}><HeaderItem title='COLLECTIONS' Icon={BookmarkIcon} /></div>
                 <div onClick={() => { router.push({ pathname: '/search', query: {}, }) }}><HeaderItem title='SEARCH' Icon={MagnifyingGlassIcon} /></div> */}
-                <div>Coder</div>
+                {/* <div>Coder</div> */}
             </div>
         </header>
     );

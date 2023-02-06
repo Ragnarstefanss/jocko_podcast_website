@@ -7,17 +7,18 @@ import Link from "next/link";
 const Thumbnail = forwardRef(({ result }, ref) => {
     const BASE_URL = "https://image.tmdb.org/t/p/original/";
     const router = useRouter();
+    var thumbnails_default = result.thumbnails.maxres ? result.thumbnails.maxres.url : result.thumbnails.default.url
 
     return (
-        <Link href={result.media_type ? `${result.media_type}/${result.id}` :  `/movie/${result.id}`}>
+        <Link href={`/episode/${result.id}`}>
             <div ref={ref} className="p-2 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50" onClick={() => {
-            router.push({pathname: result.media_type ? result.media_type+'/[id]' : '/movie/[id]', query: { id: result.id }})
+            router.push({pathname: '/episode/[id]', query: { id: result.id }})
         }}>
                 <Image
                     height={1080}
                     width={1920}
                     src={
-                        `${BASE_URL}${result.backdrop_path || result.poster_path}` ||`${BASE_URL}${result.poster_path}`
+                        `${thumbnails_default}` ||`${thumbnails_default}`
                     }
                     alt="images"
                     sizes="100vw"
