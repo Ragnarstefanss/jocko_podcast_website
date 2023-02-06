@@ -1,4 +1,4 @@
-![screenshot of website](https://raw.githubusercontent.com/Ragnarstefanss/hulu-react-app/main/screenshot-hulu.jpg)
+![screenshot of website](https://raw.githubusercontent.com/Ragnarstefanss/jocko_podcast_website/main/public/screenshot.png)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
