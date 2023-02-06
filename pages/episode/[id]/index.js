@@ -1,8 +1,5 @@
 import Image from "next/image";
-import Head from "next/head";
 import Header from "../../../components/Header"
-import ShowSimilarItems from "../../../components/helper/ShowSimilarItems";
-import ShowCastMembers from "../../../components/helper/ShowCastMembers";
 import ShowEpisodeInfo from "../../../components/episode/ShowEpisodeInfo";
 const Logo = require('../../../assets/no_image.jpg');
 import React, { useState, useEffect } from 'react';
@@ -17,12 +14,10 @@ export default function Movie({ episode_id}) {
   // //{adult, gender, id, known_for_department, name, original_name, popularity, profile_path, credit_id, department, job})
   // const characters_crew = characters["crew"]
   
-  const [content, setContent] = useState('');
-  const [title, setTitleContent] = useState('');
-  const [links, setLinkContent] = useState('');
-  const [summarize, setSummarizeContent] = useState('');
-  const [jsonData, setJsonDataContent] = useState('');
-  const [thumbnails, setThumbnailsContent] = useState('');
+  const [content, setContent] = useState([]);
+  const [summarize, setSummarizeContent] = useState([]);
+  const [jsonData, setJsonDataContent] = useState([]);
+  const [thumbnails, setThumbnailsContent] = useState([]);
   
 
   useEffect(() => {
@@ -56,7 +51,8 @@ export default function Movie({ episode_id}) {
   let episode_description = jsonData["description"]
   let episode_publishedAt = jsonData["publishedAt"]//.replace("T", " ").replace("Z", "")
   let episode_tags = jsonData["tags"]
-
+ 
+  var thumbnails_default = jsonData.thumbnails.maxres ? jsonData.thumbnails.maxres.url : jsonData.thumbnails.high.url
   return (
     <>
       <Header />
@@ -66,7 +62,7 @@ export default function Movie({ episode_id}) {
             <div className="sm:ml-4 sm:mr-4">
             
               <ShowEpisodeInfo title={episode_title} published_at={episode_publishedAt} description={episode_description} tags={episode_tags} />
-              <Image width={960} height={540} src={ thumbnails ? `${thumbnails+"/sddefault.jpg" || thumbnails+"/sddefault.jpg"}` ||`${jsonData["thumbnails"].default.url}` : Logo} alt={episode_title} className="w-1/1 h-1/1 alignSelf: 'center'"/>
+              <Image width={960} height={540} src={ thumbnails_default } alt={episode_title} className="w-1/1 h-1/1 alignSelf: 'center'"/>
               
               <ShowContentsDetails title={"AI summary of episode"} content={summarize}/>
               

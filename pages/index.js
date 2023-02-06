@@ -10,15 +10,6 @@ import axios from 'axios';
 
 
 export default function Home({ }) {
-    const [videos, setVideosContent] = useState([]);
-  
-
-  useEffect(() => {
-      axios.get('videos.json')
-          .then(res => setVideosContent(res.data))
-          .catch(error => console.error(error));
-  
-  }, []);
 
   // .replace(/\n/g, "<br>")
   return (
@@ -30,7 +21,7 @@ export default function Home({ }) {
       </Head>
       <Header />
       <Nav />
-      <Results results={videos} />
+      <Results />
     </div>
   );
 }
