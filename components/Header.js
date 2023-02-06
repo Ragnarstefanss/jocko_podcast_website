@@ -19,9 +19,9 @@ function Header() {
     return (
         <header className="flex flex-col sm:flex-row m-5 justify-between items-center h-auto">
             <div className="cursor-pointer" onClick={() => { router.push({ pathname: '/', query: {}, }) }}><Image
-                alt="hulu_logo"
+                alt=".jocko_logo"
                 className="object-contain"
-                src="https://links.papareact.com/ua6"
+                src="/00002.png"
                 width={200}
                 height={100}
                 style={{

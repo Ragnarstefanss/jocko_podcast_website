@@ -25,14 +25,6 @@ export default function Movie({ episode_id}) {
           .then(res => setContent(res.data.replace(/\n/g, "<br>")))
           .catch(error => console.error(error));
       
-      axios.get('/episodes/titles/' + episode_id + '.txt')
-          .then(res => setTitleContent(res.data.replace(/\n/g, "<br>")))
-          .catch(error => console.error(error));
-      
-      axios.get('/episodes/links/' + episode_id + '.txt')
-          .then(res => setLinkContent(res.data.replace("<img ", "<img height={1080} width={1920} sizes='100vw' style={{ width: '100%', height: 'auto'}} ")))
-          .catch(error => console.error(error));
-
       axios.get('/episodes/summarize/' + episode_id + '.txt')
           .then(res => setSummarizeContent(res.data.replace(/\n/g, "<br>")))
           .catch(error => console.error(error));
@@ -52,7 +44,9 @@ export default function Movie({ episode_id}) {
   let episode_publishedAt = jsonData["publishedAt"]//.replace("T", " ").replace("Z", "")
   let episode_tags = jsonData["tags"]
  
-  var thumbnails_default = jsonData.thumbnails.maxres ? jsonData.thumbnails.maxres.url : jsonData.thumbnails.high.url
+  // var thumbnails_default = jsonData.thumbnails.maxres ? jsonData.thumbnails.maxres.url : jsonData.thumbnails.high.url
+    
+  console.log(jsonData.thumbnails)
   return (
     <>
       <Header />
@@ -62,7 +56,9 @@ export default function Movie({ episode_id}) {
             <div className="sm:ml-4 sm:mr-4">
             
               <ShowEpisodeInfo title={episode_title} published_at={episode_publishedAt} description={episode_description} tags={episode_tags} />
-              <Image width={960} height={540} src={ thumbnails_default } alt={episode_title} className="w-1/1 h-1/1 alignSelf: 'center'"/>
+               <Image width={960} height={540} src={ thumbnails ? `${thumbnails+"/maxresdefault.jpg" || thumbnails+"/sddefault.jpg"}` ||`${jsonData["thumbnails"].default.url}` : Logo} alt={episode_title} className="w-1/1 h-1/1 alignSelf: 'center'"/>
+              
+              {/* <Image width={960} height={540} src={ thumbnails_default } alt={episode_title} className="w-1/1 h-1/1 alignSelf: 'center'"/> */}
               
               <ShowContentsDetails title={"AI summary of episode"} content={summarize}/>
               
