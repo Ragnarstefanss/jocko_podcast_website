@@ -7,7 +7,7 @@ function ShowEpisodeInfo({ title, published_at, description, tags }) {
             <p className="text-gray-300 text-base leading-relaxed mb-4">{published_at}</p>
             <div className="flex flex-wrap items-center text-gray-400 text-sm mb-4">
                 {tags && tags.map(tag => (
-                    <span className="mr-4">{tag}</span>
+                    <span key={""} className="mr-4">{tag}</span>
                 ))}
             </div> 
             {/* <div className="flex items-center text-gray-400 text-sm mb-4">

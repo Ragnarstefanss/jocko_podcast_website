@@ -6,7 +6,7 @@ function ShowContentsDetails({ title, description, tags }) {
             <h1 className="text-4xl font-semibold text-white leading-tight mb-2">{title}</h1>
             <div className="flex flex-wrap items-center text-gray-400 text-sm mb-4">
                 {tags && tags.map(tag => (
-                    <span className="mr-4">{tag}</span>
+                    <span key={""} className="mr-4">{tag}</span>
                 ))}
             </div> 
             {/* <div className="flex items-center text-gray-400 text-sm mb-4">
