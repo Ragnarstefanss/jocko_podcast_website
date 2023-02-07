@@ -1,4 +1,4 @@
-This repositories is for the website for Jocko Podcast transcripts (to see how I created all of the files, take a look at this repository https://github.com/Ragnarstefanss/Jocko-Podcast-Transcripts ).
+This repositories is only for the website of Jocko Podcast transcripts (to see how I created all of the files, you have to take a look at this repository https://github.com/Ragnarstefanss/Jocko-Podcast-Transcripts ).
 
 ![screenshot of website](https://raw.githubusercontent.com/Ragnarstefanss/jocko_podcast_website/main/public/screenshot.png)
 
