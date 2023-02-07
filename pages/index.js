@@ -18,6 +18,10 @@ export default function Home({ }) {
         <title>Jocko Podcast Transcripts</title>
         <meta name="description" content="Jocko Willink and Director, Echo Charles podcastranscripts" />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:image" content="https://ragnarsmedia-jocko-podcast.netlify.app/screenshot.png" />
+        <meta property="og:image:type" content="image/png"/>
+        <meta property="og:image:width" content="1024"/>
+        <meta property="og:image:height" content="1024"/>
       </Head>
       <Header />
       {/* <Nav /> */}
