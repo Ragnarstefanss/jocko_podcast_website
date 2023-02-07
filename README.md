@@ -1,4 +1,8 @@
+This repositories is only for the website of Jocko Podcast transcripts (to see how I created all of the files, you have to take a look at this repository https://github.com/Ragnarstefanss/Jocko-Podcast-Transcripts ).
+
 ![screenshot of website](https://raw.githubusercontent.com/Ragnarstefanss/jocko_podcast_website/main/public/screenshot.png)
+
+
 <!-- 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
